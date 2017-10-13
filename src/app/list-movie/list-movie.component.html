@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="card col-lg-4 col-md-6" *ngFor="let movie of movieList | paginate: { itemsPerPage: 10, currentPage: p} ">
+      <div class="card-body">
+        <h4 class="card-title"><span>{{movie.title}}</span></h4>
+        <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" class="img-thumbnail img-fluid img-responsive">
+      </div>
+      <div class="card-footer">
+        <h5>Release Date:- {{movie.release_date}}</h5>
+        <button (click)=addFav(movie)>Add to Favourite</button>
+      </div>
+    </div>
+   </div>
+<div class="paginateicon">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
